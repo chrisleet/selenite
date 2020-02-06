@@ -3,18 +3,18 @@ import numpy as np
 import yaml
 from time import strftime
 
-import expres.selenite.get_args.get_calibrate_args as get_calibrate_args
+import get_args.get_calibrate_args as get_calibrate_args
 
-import expres.selenite.load_store.load_fits as load_fits
-import expres.selenite.load_store.write_normalized_spectra as write_norms
+import load_store.load_fits as load_fits
+import load_store.write_normalized_spectra as write_norms
 
-import expres.selenite.preprocessing.filter_bstars as filter_bstars
-import expres.selenite.preprocessing.normalize as normalize
-import expres.selenite.preprocessing.suppress_stellar_lines as supression
-import expres.selenite.preprocessing.remove_fringes as remove_fringes
+import preprocessing.filter_bstars as filter_bstars
+import preprocessing.normalize as normalize
+import preprocessing.suppress_stellar_lines as supression
+import preprocessing.remove_fringes as remove_fringes
 
-import expres.selenite.visualize.plot_data as plot_data
-import expres.selenite.visualize.plot_uncertainty as plot_uncertainty
+import visualize.plot_data as plot_data
+import visualize.plot_uncertainty as plot_uncertainty
 
 from utility import read_args_utility
 
