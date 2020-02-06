@@ -47,7 +47,7 @@ The SELENITE repository contains a science spectrum and ~200 normalized B star s
 ```python3 selenite/plot_tellurics.py -o 72 test_data/science_spectra/101501_180526.1086.fits```
 
 ## General running instructions
-Calling instructions for each program can be found using the -h flag (e.g. `python3 selenite/calibrate_selenite.py`). In general, however:
+Calling instructions for each program can be found using the -h flag (e.g. `python3 selenite/calibrate_selenite.py -h`). In general, however:
 
 `python3 selenite/calibrate_selenite.py` has the calling sequence \<path to science spectrum to take wavelength grid from> \<path to csv file to write model to> \<path to configuration file>.
   
