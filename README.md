@@ -21,9 +21,13 @@ SELENITE's workflow works as follows:
 2. Install dependencies.
 
 ```python3 -m pip install pyyaml```
+
 ```python3 -m pip install astropy```
+
 ```python3 -m pip install matplotlib```
+
 ```python3 -m pip install numpy```
+
 ```python3 -m pip install scipy```
 
 That's it!
