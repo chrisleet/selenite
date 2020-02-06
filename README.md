@@ -22,3 +22,7 @@ The SELENITE repository contains a science spectrum and ~200 normalized B star s
 2. We then fit the telluric model to the science spectrum using:
 
 ```python3 selenite/fit_selenite.py test_data/science_spectra/101501_180526.1086.fits runtime/dbs/test_db.csv selenite/config/fit_selenite_cfg.yml```
+
+3. Finally, the fitted model can be plotted by:
+
+```python3 selenite/plot_tellurics.py -o 72 test_data/science_spectra/101501_180526.1086.fits```
