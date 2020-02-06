@@ -1,0 +1,9 @@
+import numpy as np
+
+def strip_nans(shard_dict):
+  for shard in shard_dict.values():
+    for spectrum in shard.spectra.values():
+      good_px = np.logical_not(np.isnan(spectrum.log_y))
+      spectrum.lin_x = spectrum.lin_x[good_px]
+      spectrum.log_y = spectrum.log_y[good_px]
+      spectrum.log_y = spectrum.log_y[good_px]

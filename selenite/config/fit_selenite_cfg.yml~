@@ -1,0 +1,154 @@
+#######################
+#   Fit Config File   #
+#######################
+
+# This is the config file for fitting a telluric model to a science spectrum.
+# The config file comes in three parts:
+# i)    Basic Config: These options should be set everytime the program is run.
+# ii)   Debugging: Plot various stages of the fitting for debugging.
+# iii)  Advanced Config: Sane defaults for certain fitting parameters. Can be
+#       changed sparingly.
+
+
+####################
+#   Basic Config   #
+####################
+
+# ORDERS
+# List of orders to correct. Valid inputs are:
+# a) A list of integers between 0-61 inclusive denoting the records to 
+#    correct.
+# b) A string keyword representing a set of orders. Recognized keywords are:
+#    i)   "all" = all orders, equivalent to the list [0, ..., 61]
+#    ii)  "blue" = blue orders (<680nm), equivalent to the list [0, ..., 44]
+#    iii) "red" = red orders (>680nm), equivalent to the list [45, ..., 61]
+orders: [72] #[67, 71, 72, 75, 83, 85]
+
+# NORMALIZE
+# Set flag to true if spectra should be normalized. Set flag to false if
+# spectra already normalized.
+normalize: False
+
+########################
+#   DEBUGGING CONFIG   #
+########################
+# These options plot the modelling  process's workings at each of its stages.
+# Useful for debugging or for general interest.
+
+# Plot each spectra before processing
+plot_raw_data: False
+# Plot each spectra after normalization.
+plot_norm_data: False
+# Plot each step in telluric spectrum fitting
+plot_fspec_fitting_steps: False
+# Plot each shard in the spectrum to fit against the fitted telluric model.
+plot_fit_telluric_spec: True
+
+
+#######################
+#       STATS         #
+#######################
+# These options prints statistics about the model's fit
+# Print the average model error
+print_model_error: False
+
+#######################
+#   ADVANCED CONFIG   #
+#######################
+
+# CALIBRATORS
+# The calibration line/suite of calibration lines to use for water telluric
+# identification. Should be entered as the list [<shard>, <px>] where
+# <shard> := <order, lo_px hi_px>
+# e.g. [[29, 1500, 1800], 22]
+# Calibrators should be provided for each equipped spectrograph as follows:
+# calibrators:
+#     SPECTROGRAPH_1:
+#          - calibrator_1
+#          - ...
+#     SPECTROGRAPH_2:
+#         - calibrator_1
+#         - ...
+calibrators:
+  
+# 217014
+#  ######### New order 72 (217014)
+  - 6939.63
+  - 6941.54
+  - 6942.11
+  - 6943.14
+  - 6944.07
+  - 6949.46
+##  ######### Old order 72 (217014)
+  - 6952.68
+  - 6961.38  #<
+  - 6966.47 
+  - 6979.41       
+  - 6986.87
+  - 6988.51
+  - 6989.80
+  - 6990.91  #<
+  - 6992.30
+  - 6995.45
+
+# 101501 (a)
+#    - 6988.510387
+#    - 6945.718447
+#    - 6949.460383
+#    - 7213.196751
+#    - 7175.374174
+#    - 7180.391156
+#    - 6966.468517
+#    - 6950.987200
+
+# 101501 (b)
+#    - 7206.289035 #190210
+#    - 6942.104287
+#    - 6944.070664
+#    - 6945.725629
+#    - 6996.043344
+#    - 7174.695584
+#    - 7234.232323
+#    - 7180.389958
+
+# 75732 (a)
+#  - 6939.62
+#  - 6941.53
+#  - 6942.10
+#  - 6944.07
+#  - 6951.00
+#  - 6952.69
+#  - 6961.38
+#  - 6963.18
+#  - 6988.51
+#  - 6990.91
+
+# 75732 (b)
+#  - 7234.890945
+#  - 7174.696449
+#  - 7208.411774
+#  - 6941.53
+#  - 6944.07
+#  - 6949.448274
+#  - 6952.69
+#  - 6988.51
+#  - 6990.91
+#  - 6937.204155
+#  - 6943.147096
+
+#LO_MU and HI_MU
+# Set the range of value of mu to fit to. Mu is the depth of the water
+# calibrator line in the science spectrum. Since the calibrator line
+# may be blended with other lines, we estimate mu from the depths of
+# other water lines.
+lo_mu: -2.5
+hi_mu: 0.0
+
+#MU_EPSILON
+# Set the accuracy to compute mu to. When the range of possible mus
+# has been lowered below this value, fitting will stop.
+mu_epsilon: 0.001
+
+# SATURATION_THRESHOLD
+# Pixels with log intensity below this value are marked as saturated
+saturation_threshold: -2.9

@@ -1,0 +1,11 @@
+import numpy as np
+
+def constrain_wv_grid(shard_dict, wv_grid_shard_dict):
+  
+  for order, shard in shard_dict.values():
+    if order in wv_grid_shard_dict:
+      spectrum = wv_grid_shard_dict.spectra.values().next()
+      l_cutoff_px = np.argmax(spectrum.lin_x > shard.l_cutoff_wv)
+      r_cutoff_px = np.argmax(spectrum.lin_x > shard.r_cutoff_wv) - 1
+
+      spectrum.
