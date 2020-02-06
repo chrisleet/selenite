@@ -16,4 +16,9 @@ SELENITE's workflow works as follows:
 ## Running the test case!
 The SELENITE repository contains a science spectrum and ~200 normalized B star spectra as a test case. The test case can be run as follows.
 1. Since the test B stars have already been normalized, there is no need to run `normalize_bstars.py`. We go right to building the telluric model using:
+
 ```python3 selenite/calibrate_selenite.py test_data/science_spectra/101501_180526.1086.fits runtime/dbs/test_db.csv selenite/config/calibrate_selenite_cfg.yml```
+
+2. We then fit the telluric model to the science spectrum using:
+
+```python3 selenite/fit_selenite.py test_data/science_spectra/101501_180526.1086.fits runtime/dbs/test_db.csv selenite/config/fit_selenite_cfg.yml```
